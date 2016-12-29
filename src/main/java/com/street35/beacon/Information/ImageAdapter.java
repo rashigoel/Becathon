@@ -12,6 +12,8 @@ import android.widget.ImageView;
 
 import com.street35.beacon.R;
 
+import java.util.List;
+
 /**
  * Created by Weirdo on 29-12-2016.
  */
@@ -19,9 +21,11 @@ import com.street35.beacon.R;
 public class ImageAdapter extends BaseAdapter {
 
     private Context mContext;
+    private List<String> list;
     // Constructor
-    public ImageAdapter(Context c) {
+    public ImageAdapter(Context c , List<String> a) {
         mContext = c;
+        list = a;
     }
 
     public int getCount() {
@@ -55,7 +59,7 @@ public class ImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
         imageView.setImageResource(mThumbIds[position]);
-        if(position==2)
+        if(!list.contains(region_names[position]))
         {
             imageView.setClickable(false);
             Log.d("aaaaa","aheyeeeee");
@@ -71,7 +75,20 @@ public class ImageAdapter extends BaseAdapter {
     public Integer[] mThumbIds = {
             R.mipmap.ic_launcher , R.mipmap.ic_launcher,
             R.mipmap.ic_launcher, R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher, R.mipmap.ic_launcher
+            R.mipmap.ic_launcher, R.mipmap.ic_launcher,
+            R.mipmap.ic_launcher
 
     };
+    public String[] region_names = {
+            "Test Room" , "Git Room","Android Room","iOS Room","Python Room","Office","Ruby Room"
+    };
+
+    public void clear(){
+        list.clear();
+        notifyDataSetChanged();
+    }
+    public void addAll(List<String> a){
+        list=a;
+        notifyDataSetChanged();
+    }
 }
