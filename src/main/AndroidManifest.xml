@@ -15,10 +15,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Information.Information" />
         <activity
             android:name=".Info"
             android:label="@string/title_activity_info"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".Information.DetailInfo"
+            android:label="@string/title_activity_detail_info"/>
     </application>
 
 </manifest>
