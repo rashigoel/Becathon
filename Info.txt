@@ -1,0 +1,2 @@
+Information about the Code
+An application with the use of beacons.
